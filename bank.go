@@ -1,16 +1,31 @@
 package main
 
-import "fmt"
-import "os"
+import (
+	"fmt"
+	"os"
+	"strconv" 
+)
+
+//strconv helps with string conversion
+
+const accountBalanceFile = "balance.txt"
+
+func getBalanceFromFile() float64{
+	data, _ := os.ReadFile(accountBalanceFile) // using underscore simply means telling go u dont want to use that returned value right now
+	balanceText := string(data)
+	balance, _ := strconv.ParseFloat(balanceText, 64)
+
+	return balance
+}
 
 func writeBalanceToFile(balance float64) {
 	balanceText := fmt.Sprint(balance)
-	os.WriteFile("balance.txt", []byte(balanceText), 0644) //0644 is a file permissions notation which means owner can read write and others can only read
+	os.WriteFile(accountBalanceFile, []byte(balanceText), 0644) //0644 is a file permissions notation which means owner can read write and others can only read
 
 }
 
 func main() {
-	var accountBalance = 1000.0
+	var accountBalance = getBalanceFromFile()
 
 	fmt.Println("Welcome to Go Bank")
 
