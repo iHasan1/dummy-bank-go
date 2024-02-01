@@ -48,7 +48,10 @@ func main() {
 			fmt.Println("Balance updated! New amount:", accountBalance)
 		} else {
 			fmt.Println("Goodbye!")
-			return
+			// return
+			break
 		}
 	}
+
+	fmt.Println("Thanks for using our Bank.")
 }
