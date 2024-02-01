@@ -24,7 +24,8 @@ func main() {
 
 			if depositAmount <= 0 {
 				fmt.Println("Invalid amount, Must be greater than 0.")
-				return
+				// return
+				continue
 			}
 
 			accountBalance += depositAmount
@@ -36,12 +37,14 @@ func main() {
 
 			if withdrawalAmount < 0 {
 				fmt.Println("Invalid amount. Must be greater than 0.")
-				return
+				// return
+				continue
 			}
 
 			if withdrawalAmount >= accountBalance {
 				fmt.Println("Invalid amount. You can't withdraw more than you have.")
-				return
+				// return
+				continue
 			}
 
 			accountBalance -= withdrawalAmount
