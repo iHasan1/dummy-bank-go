@@ -5,8 +5,9 @@ import "fmt"
 func main() {
 	var accountBalance = 1000.0
 
-	for i := 0; i < 2; i++ {
-		fmt.Println("Welcome to Go Bank")
+	fmt.Println("Welcome to Go Bank")
+
+	for {
 		fmt.Println("What do you want to do?")
 		fmt.Print("1. Check Balance\n2. Deposit Money\n3. Withdraw Money\n4. Exit\n")
 
