@@ -15,14 +15,14 @@ func getBalanceFromFile() (float64, error){
 	data, err := os.ReadFile(accountBalanceFile) // using underscore simply means telling go u dont want to use that returned value right now
 
 	if err != nil {
-		return 1000.0, errors.New("Failed to find file")
+		return 1000.0, errors.New("failed to find file")
 	}
 
 	balanceText := string(data)
 	balance, err := strconv.ParseFloat(balanceText, 64)
 
 	if err != nil {
-		return 1000.0, errors.New("Failed to parse stored value")
+		return 1000.0, errors.New("failed to parse stored value")
 	}
 
 	return balance, nil
