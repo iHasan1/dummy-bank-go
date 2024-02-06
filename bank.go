@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"example.com/bank/file_management"
 )
 
 //strconv helps with string conversion
@@ -9,7 +10,7 @@ import (
 const accountBalanceFile = "balance.txt"
 
 func main() {
-	var accountBalance, err = getFloatFromFile(accountBalanceFile)
+	var accountBalance, err = file_management.GetFloatFromFile(accountBalanceFile)
 
 	if err != nil {
 		fmt.Println("ERROR")
@@ -43,7 +44,7 @@ func main() {
 
 			accountBalance += depositAmount
 			fmt.Println("Balance updated! New amount:", accountBalance)
-			writeFloatToFile(accountBalance, accountBalanceFile)
+			file_management.WriteFloatToFile(accountBalance, accountBalanceFile)
 		case 3:
 			fmt.Print("Your withdrawal: ")
 			var withdrawalAmount float64
@@ -63,7 +64,7 @@ func main() {
 
 			accountBalance -= withdrawalAmount
 			fmt.Println("Balance updated! New amount:", accountBalance)
-			writeFloatToFile(accountBalance, accountBalanceFile)
+			file_management.WriteFloatToFile(accountBalance, accountBalanceFile)
 		default:
 			fmt.Println("Goodbye!")
 			fmt.Println("Thanks for using our Bank.")
